@@ -16,16 +16,16 @@ def main():
   days = importlib.import_module('days')
   day = getattr(days, day)
 
-  print("Paste input below:")
+  print("Paste input below (Ctrl+D to save):")
   puzzle_input = []
   while True:
-    line = input()
-    if line:
-      puzzle_input.append(line)
-    else:
-      break
+    try:
+      line = input()
+    except EOFError:
+        break
+    puzzle_input.append(line)
 
-  print(day.part1(puzzle_input))
-  print(day.part2(puzzle_input))
+  print(f'Part 1: {day.part1(puzzle_input)}')
+  print(f'Part 2: {day.part2(puzzle_input)}')
 
 main()
