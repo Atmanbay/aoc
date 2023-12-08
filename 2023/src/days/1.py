@@ -4,7 +4,7 @@ def part1(input):
   sum = 0
 
   for line in input:
-    match = re.findall('\d', line)
+    match = re.findall(r'\d', line)
     val = int(f'{match[0]}{match[-1]}')
     sum += val
 
@@ -32,7 +32,7 @@ def part2(input):
       return converter[val]
 
   for line in input:
-    match = re.findall('\d|one|two|three|four|five|six|seven|eight|nine', line, overlapped=True)
+    match = re.findall(r'\d|one|two|three|four|five|six|seven|eight|nine', line, overlapped=True)
     first_val = convert(match[0])
     last_val = convert(match[-1])
     val = int(f'{first_val}{last_val}')

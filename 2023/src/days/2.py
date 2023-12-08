@@ -11,7 +11,7 @@ def part1(input):
 
   def is_game_valid(pull_results):
     for pull_result in pull_results.split(';'):
-      results_by_color = re.findall('(\d+)\s(\w+)', pull_result)
+      results_by_color = re.findall(r'(\d+)\s(\w+)', pull_result)
       for [count, color] in results_by_color:
         if int(count) > bag_contents[color]:
           return False
@@ -19,7 +19,7 @@ def part1(input):
     return True
 
   for game_result in input:
-    [game, pull_results] = re.findall('Game\s(\d+):\s(.*?)$', game_result)[0]
+    [game, pull_results] = re.findall(r'Game\s(\d+):\s(.*?)$', game_result)[0]
     if (is_game_valid(pull_results)):
       sum += int(game)
 
@@ -36,7 +36,7 @@ def part2(input):
     }
     
     for pull_result in pull_results.split(';'):
-      results_by_color = re.findall('(\d+)\s(\w+)', pull_result)
+      results_by_color = re.findall(r'(\d+)\s(\w+)', pull_result)
       for [count, color] in results_by_color:
         if int(count) > max_values[color]:
           max_values[color] = int(count)
@@ -44,7 +44,7 @@ def part2(input):
     return max_values['red'] * max_values['green'] * max_values['blue']
 
   for game_result in input:
-    [_, pull_results] = re.findall('Game\s(\d+):\s(.*?)$', game_result)[0]
+    [_, pull_results] = re.findall(r'Game\s(\d+):\s(.*?)$', game_result)[0]
     sum += get_power(pull_results)
 
   return sum
