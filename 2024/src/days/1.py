@@ -11,13 +11,13 @@ def parse_input(input):
 
 
 def part1(input):
-    left, right = parse_input(input)
+    left, right = parse_input(input.splitlines())
     left_sorted = sorted(left)
     right_sorted = sorted(right)
     return sum(abs(l - r) for l, r in zip(left_sorted, right_sorted))
 
 
 def part2(input):
-    left, right = parse_input(input)
+    left, right = parse_input(input.splitlines())
     right_counts = Counter(right)
     return sum(num * right_counts[num] for num in left)

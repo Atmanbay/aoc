@@ -17,14 +17,8 @@ def main():
   days = importlib.import_module('days')
   day = getattr(days, day)
 
-  print("Paste input below (Ctrl+D to save):")
-  puzzle_input = []
-  while True:
-    try:
-      line = input()
-    except EOFError:
-        break
-    puzzle_input.append(line)
+  with open("in.txt", "r") as file:
+    puzzle_input = file.read()
 
   print("")
   print(f'Part 1: {day.part1(puzzle_input)}')

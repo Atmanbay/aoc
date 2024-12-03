@@ -20,7 +20,7 @@ def is_safe(report):
 
 def part1(input):
     safe_count = 0
-    reports = parse_input(input)
+    reports = parse_input(input.splitlines())
 
     for report in reports:
         if is_safe(report):
@@ -39,7 +39,7 @@ def can_be_safe(report):
 
 def part2(input):
     safe_count = 0
-    reports = parse_input(input)
+    reports = parse_input(input.splitlines())
 
     for report in reports:
         if is_safe(report) or can_be_safe(report):
