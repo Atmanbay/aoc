@@ -27,31 +27,6 @@ def is_divisible(prize, button):
     return prize_x % button_x == 0 and button_x * 100 >= prize_x and prize_y % button_y == 0 and button_y * 100 >= prize_y
 
 
-def get_minimum_tokens_reverse(machine):
-    tokens = 0
-    a, b, prize = machine
-    location = prize
-
-    for _ in range(100):
-        location = (location[0] - b[0], location[1] - b[1])
-        tokens += 3
-        if is_divisible(location, a):
-            break
-    else:
-        return 0
-
-    for _ in range(100):
-        location = (location[0] - a[0], location[1] - a[1])
-        tokens += 1
-        if location == (0, 0):
-            break
-    else:
-        return 0
-
-    return tokens
-
-
-
 def get_minimum_tokens(machine):
     a, b, prize = machine
 
